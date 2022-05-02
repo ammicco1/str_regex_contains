@@ -11,9 +11,9 @@ int main(int argc, char **argv){
     }
 
     if(str_regex_contains(argv[1], argv[2]) == 1){
-        printf("the string contains the pattern");
+        printf("the string contains the pattern\n");
     }else{
-        printf("not included");
+        printf("not included\n");
     }
 
     return 0;
