@@ -13,16 +13,19 @@ int str_regex_contains(char *str, char *pattern){
 		return -1;
 	}
 
-    if(regcomp(&regex, pattern, REG_ICASE | REG_EXTENDED) != 0){
-        regfree(&regex);         
-        return -1;
-    }
+  if(regcomp(&regex, pattern, REG_ICASE | REG_EXTENDED) != 0){
+      regfree(&regex);         
+  
+      return -1;
+  }
 
-    if(!regexec(&regex, str, (size_t) REG_MATCH_SIZE, match, 0)){
-		regfree(&regex);
-		
-		return 1;
-    }else{
-		return 0;
+  if(!regexec(&regex, str, (size_t) REG_MATCH_SIZE, match, 0)){
+	  regfree(&regex);
+	
+	  return 1;
+  }else{
+    regfree(&regex);
+
+	  return 0;
 	}
 }
