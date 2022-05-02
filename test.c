@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv){
     if(argc < 3){
-        fprintf(stderr, "no str or regex! use main str regex");
+        fprintf(stderr, "no str or regex! use main str regex\n");
         
         return -1;
     }
