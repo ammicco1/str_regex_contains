@@ -1,5 +1,9 @@
 #include <regex.h>
+#include <stdlib.h>
+
 #include "./str_regex_contains.h"
+
+#define REG_MATCH_SIZE 10
 
 int str_regex_contains(char *str, char *pattern){
 	regmatch_t match[REG_MATCH_SIZE];
@@ -15,9 +19,6 @@ int str_regex_contains(char *str, char *pattern){
     }
 
     if(!regexec(&regex, str, (size_t) REG_MATCH_SIZE, match, 0)){
-		in = match[0].rm_so;
-		fin = match[0].rm_eo;
-
 		regfree(&regex);
 		
 		return 1;
