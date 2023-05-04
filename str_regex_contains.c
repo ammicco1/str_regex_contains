@@ -4,7 +4,7 @@
 
 #include "./str_regex_contains.h"
 
-#define _MATCH_SIZE_ 10
+#define _MATCH_SIZE_ 64
 
 int str_regex_contains(char *str, char *pattern){
 	regmatch_t match[_MATCH_SIZE_];
@@ -21,14 +21,14 @@ int str_regex_contains(char *str, char *pattern){
   }
 
   if(!regexec(&regex, str, (size_t) _MATCH_SIZE_, match, 0)){
-    fprintf(stderr, "++++++ Pattern match from %d to %d ++++++\n", match[0].rm_so, match[0].rm_eo);
+    fprintf(stderr, "Pattern match from %d to %d\n", match[0].rm_so, match[0].rm_eo);
 
 	  regfree(&regex);
 	
-	  return 1;
+	  return 0;
   }else{
     regfree(&regex);
 
-	  return 0;
+	  return 1;
 	}
 }
